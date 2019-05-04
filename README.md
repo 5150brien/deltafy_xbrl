@@ -4,7 +4,7 @@ A Python library for working with 10-K/10-Q financial filings in XBRL format
 
 ## Usage
 
-Use deltafy_xbrl's parser to easily access the document and entity information (DEI fields) in a financial filing or search for specific accounting concepts.
+Use deltafy_xbrl's parser to easily access the document and entity information (DEI) fields in a financial filing or search for specific accounting concepts.
 
 ### Initialization
 
@@ -35,7 +35,7 @@ Attribute Name | Type | Meaning
 ------------ | ------------- | -------------
 amendment_flag | bool | Identifies whether the document is an amended filing
 fiscal_year_end | str | The month and day upon which the fiscal year ends
-fiscal_period_focus | str | The quarter represented by the filing or 'FY' for full-year
+fiscal_period_focus | str | 'Q1', 'Q2', 'Q3', and 'Q4' for fiscal quarters; 'FY' for full-year
 fisca_year_focus | int | The year in which the filing's accounting period occurred
 period_end_date | datetime | The date upon which the filing's accounting period ended
 document_type | str | '10-K' or '10-Q'
@@ -58,8 +58,8 @@ Once an instance document has been loaded, you can use the search method to find
 
 #### Example
 ```python
-current_instant = xbrl.instant_context
-xbrl.search(concept="us-gaap:Cash", context=current_instant)
+current_instant = xyz_corp_10k.instant_context
+xyz_corp_10k.search(concept="us-gaap:Cash", context=current_instant)
 # Decimal('10000000')
 ```
 
