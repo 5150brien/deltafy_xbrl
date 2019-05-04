@@ -8,25 +8,6 @@ class XBRLParser(object):
     """
     Deltafy XBRL parser client
     """
-    amendment_flag = None
-    fiscal_year_end = None
-    fiscal_period_focus = None
-    fiscal_year_focus = None
-    period_end_date = None
-    document_type = None
-    cik = None
-    current_reporting_status = None
-    filer_category = None
-    registrant_name = None
-    voluntary_filers = None
-    well_known_issuer = None
-    shell_company = None
-    small_business = None
-    trading_symbols= None
-    currency = None
-    instant_context = None
-    duration_context = None
-
     def __init__(self, instance_file_path=None):
         """
         Initializes the XBRL Parser client
@@ -36,6 +17,25 @@ class XBRLParser(object):
 
         Currently loads only the current period's instant and duration contexts.
         """
+        self.amendment_flag = None
+        self.fiscal_year_end = None
+        self.fiscal_period_focus = None
+        self.fiscal_year_focus = None
+        self.period_end_date = None
+        self.document_type = None
+        self.cik = None
+        self.current_reporting_status = None
+        self.filer_category = None
+        self.registrant_name = None
+        self.voluntary_filers = None
+        self.well_known_issuer = None
+        self.shell_company = None
+        self.small_business = None
+        self.trading_symbols= None
+        self.currency = None
+        self.instant_context = None
+        self.duration_context = None
+
         instance_data = None
 
         with open(instance_file_path, 'rb') as f:
