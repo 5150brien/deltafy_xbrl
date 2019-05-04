@@ -4,11 +4,11 @@ A Python library for working with 10-K/10-Q financial filings in XBRL format
 
 ## Usage
 
-Use deltafy_xbrl's parser to easily access the document and entity information (DEI) fields in a financial filing or search for specific accounting concepts.
+Use deltafy_xbrl to access the document and entity information (DEI) fields in a financial filing or search for specific accounting concepts.
 
 ### Initialization
 
-Load the instance document from an XBRL filing into an XBRLParser instance to examine its contents.
+Load the instance document from an XBRL filing into an `XBRLParser` instance to examine its contents.
 
 #### Example
 ```python
@@ -29,7 +29,7 @@ print(xyz_corp_10k.fiscal_year_focus)
 
 #### XBRLParser Attributes
 
-When a filing's instance document is loaded into an XBRLParser instance, the most common DEI fields and **current period** contexts will be loaded as attributes if they are present in the document:
+When a filing's instance document is loaded into an `XBRLParser` instance, the most common DEI fields and **current period** contexts will be loaded as attributes if they are present in the document:
 
 Attribute Name | Type | Meaning
 ------------ | ------------- | -------------
@@ -54,7 +54,7 @@ duration_context | str | The context for duration concepts in the **current** pe
 
 ### Search for Specific Financial Values
 
-Once an instance document has been loaded, you can use the search method to find the value that was reported for specific accounting concepts. Use the prefixed accounting concept name and the desired context as parameters to the search function. The search method returned None in cases where no value is found.
+Once an instance document has been loaded, you can use the `search()` method to find the value that was reported for specific accounting concepts. Use the prefixed accounting concept name and the desired context as parameters to the search function. The search method returns `None` in cases where no value is found.
 
 #### Example
 ```python
@@ -63,4 +63,4 @@ xyz_corp_10k.search(concept="us-gaap:Cash", context=current_instant)
 # Decimal('10000000')
 ```
 
-Note that XBRLParser only loads the **current** instance and duration contexts for you, but there are potentially hundreds of contexts stored within a filing that may have associated values. These alternative contexts usually have no meaning in the current accounting period, but they are often included in XBRL instances so that tables can be constructed that show the values from multiple periods side by side.
+Note that `XBRLParser` only loads the **current** instance and duration contexts for you, but there are potentially hundreds of contexts stored within a filing that may have associated values. These alternative contexts usually have no meaning in the current accounting period, but they are often included in XBRL instances so that tables can be constructed that show the values from multiple periods side by side.
