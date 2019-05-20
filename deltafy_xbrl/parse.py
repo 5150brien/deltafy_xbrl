@@ -546,7 +546,7 @@ class XBRLParser(object):
             # Reload duration context
             self.get_current_duration_context()
 
-        # Wayne Savings Bancshares 2012 10-K dates are all fucked up
+        # Wayne Savings Bancshares 2012 10-K dates are all messed up
         if self.cik == '0001036030' and \
             self.fiscal_year_focus == '2012' and \
             self.document_type == '10-K':
