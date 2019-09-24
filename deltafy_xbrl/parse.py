@@ -477,9 +477,9 @@ class XBRLParser(object):
             nil_attribute = '{{{xsi}}}nil'.format(xsi=self.ns.get('xsi'))
             nil = node.attrib.get(nil_attribute)
 
-            if nil and nil == 'true':
+            if nil == 'true':
                 concept_value = decimal.Decimal('0')
-            else:
+            elif node.text and nil != 'true':
                 concept_value = decimal.Decimal(node.text)
 
         return concept_value
